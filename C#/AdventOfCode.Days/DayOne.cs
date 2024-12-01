@@ -33,7 +33,7 @@ public class DayOne
         var solution = leftTeamIds.Zip(rightTeamIds, (l, r) => Math.Abs(l - r)).Sum();
 
         _output.WriteLine($"\tPart One: {solution}");
-        Assert.True(solution > int.MinValue);
+        Assert.Equal(2375403, solution);
     }
 
     [Fact]
@@ -52,6 +52,6 @@ public class DayOne
         var solution = leftTeamIds.Sum(leftId => leftId * rightTeamIds.Count(rightId => rightId == leftId));
 
         _output.WriteLine($"\tPart Two: {solution}");
-        Assert.True(solution > int.MinValue);
+        Assert.True(23082277, solution);
     }
 }
