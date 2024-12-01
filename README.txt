@@ -1,1 +1,1 @@
-![AOC pipeline](https://github.com/cant0r/AdventOfCode2024/actions/workflows/pipeline.yml/badge.svg)](https://github.com/cant0r/AdventOfCode2024/actions/workflows/pipeline.yml)
+[![AOC pipeline](https://github.com/cant0r/AdventOfCode2024/actions/workflows/pipeline.yml/badge.svg)](https://github.com/cant0r/AdventOfCode2024/actions/workflows/pipeline.yml)
