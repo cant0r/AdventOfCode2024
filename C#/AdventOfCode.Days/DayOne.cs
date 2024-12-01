@@ -52,6 +52,6 @@ public class DayOne
         var solution = leftTeamIds.Sum(leftId => leftId * rightTeamIds.Count(rightId => rightId == leftId));
 
         _output.WriteLine($"\tPart Two: {solution}");
-        Assert.True(23082277, solution);
+        Assert.Equal(23082277, solution);
     }
 }
