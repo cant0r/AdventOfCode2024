@@ -23,5 +23,5 @@ jobs:
               with:
                 dotnet-version: '9.x'
             - name: Run solutions
-              run: dotnet test
+              run: dotnet test --logger "console;verbosity=detailed"
 
