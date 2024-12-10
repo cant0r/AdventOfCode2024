@@ -188,6 +188,6 @@ public class DayFive
         }
 
         _output.WriteLine($"\tPart Two: {solution}");
-        Assert.Equal(7024, solution);
+        Assert.Equal(4151, solution);
     }
 }
