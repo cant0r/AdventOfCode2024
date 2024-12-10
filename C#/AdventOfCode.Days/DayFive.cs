@@ -147,15 +147,26 @@ public class DayFive
 
         foreach (var update in invalidUpdates)
         {
-            var validUpdate = true;
-            var pages = update.Split(",");
-
-            for (var pageIndex = 0; pageIndex < pages.Length; pageIndex++)
+            var shuffledPages = update.Split(",");
+            Array.Sort(shuffledPages, (p1, p2) =>
             {
-                var succPages = pages.Length - pageIndex - 1;
-                var pageRuleSet = ruleSet[pages[pageIndex]];
+                if (ruleSet[p1].Contains(p2))
+                {
+                    return -1;
+                }
+                if (ruleSet[p2].Contains(p1))
+                {
+                    return 1;
+                }
+                return 0;
+            });
+            var validUpdate = true;
+            for (var pageIndex = 0; pageIndex < shuffledPages.Length; pageIndex++)
+            {
+                var succPages = shuffledPages.Length - pageIndex - 1;
+                var pageRuleSet = ruleSet[shuffledPages[pageIndex]];
 
-                foreach (var succPage in pages[pageIndex..].ToList())
+                foreach (var succPage in shuffledPages[pageIndex..].ToList())
                 {
                     if (pageRuleSet.Contains(succPage))
                     {
@@ -166,13 +177,13 @@ public class DayFive
                 if (succPages > 0)
                 {
                     validUpdate = false;
-                    break;
                 }
             }
 
-            if (!validUpdate)
+            if (validUpdate)
             {
-                invalidUpdates.Add(update);
+                _output.WriteLine(string.Join(", ", shuffledPages));
+                solution += int.Parse(shuffledPages[shuffledPages.Length / 2], CultureInfo.InvariantCulture);
             }
         }
 
